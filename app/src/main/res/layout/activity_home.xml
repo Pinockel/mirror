@@ -71,7 +71,7 @@
       android:layout_height="wrap_content"
       android:layout_alignParentRight="true"
       android:layout_below="@id/time"
-      android:format12Hour="EEEE\nMMMM d"
+      android:format12Hour="EEEE \n d MMMM"
       android:gravity="right"/>
 
   <!-- News -->

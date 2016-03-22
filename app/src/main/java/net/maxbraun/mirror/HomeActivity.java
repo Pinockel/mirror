@@ -1,5 +1,6 @@
 package net.maxbraun.mirror;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.wifi.WifiInfo;
@@ -44,7 +45,7 @@ public class HomeActivity extends Activity {
       if (data != null) {
 
         // Populate the current temperature rounded to a whole number.
-        String temperature = String.format("%d°", Math.round(data.currentTemperature));
+        String temperature = String.format("%d°", (Math.round((data.currentTemperature-32) / 1.8)));
         temperatureView.setText(temperature);
 
         // Populate the 24-hour forecast summary, but strip any period at the end.
@@ -108,6 +109,15 @@ public class HomeActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_home);
+
+    final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+    getWindow().getDecorView().setSystemUiVisibility(flags);
 
     temperatureView = (TextView) findViewById(R.id.temperature);
     weatherSummaryView = (TextView) findViewById(R.id.weather_summary);

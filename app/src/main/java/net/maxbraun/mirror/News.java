@@ -22,7 +22,7 @@ public class News extends DataUpdater<List<String>> {
    * The "Top Headlines" news feed from the Associated Press.
    */
   private static final String AP_TOP_HEADLINES_URL =
-      "http://hosted2.ap.org/atom/APDEFAULT/3d281c11a96b4ad082fe88aa0db04305";
+      "https://news.google.com/?output=atom&news?cf=all&hl=de";
 
   /**
    * The time in milliseconds between API calls to update the news.
